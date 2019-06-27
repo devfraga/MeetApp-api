@@ -1,10 +1,15 @@
 # Projeto MeetUp App
 
 # Usando:
-NodeJS
-Express
+NodeJS<br/>
+Express<br/>
+Nodemon<br/>
+Sucrase<br/>
+ESLint, Prettier & EditorConfig<br/>
 
 # Rodar o projeto
 baixar as dependencias: yarn<br/>
-Rodar o projeto: yarn dev<br/>
-Projeto usando docker w/ Postgres
+Rodar o projeto com nodemon: yarn dev<br/>
+Queira usar o Sucrase para rodar: yarn sucrase-node src/server.js<br/>
+Projeto usando docker w/ Postgres<br/>
+
