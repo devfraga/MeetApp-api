@@ -6,6 +6,8 @@ Express<br/>
 Nodemon<br/>
 Sucrase<br/>
 ESLint, Prettier & EditorConfig<br/>
+Sequelie / Sequelize-cli<br/>
+Banco de dados Postgres<br/>
 
 # Rodar o projeto
 baixar as dependencias: yarn<br/>
