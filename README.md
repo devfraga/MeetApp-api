@@ -9,6 +9,7 @@ ESLint, Prettier & EditorConfig<br/>
 Sequelie / Sequelize-cli<br/>
 Banco de dados Postgres<br/>
 Bcryptjs<br/>
+JsonWebToken<br/>
 
 # Rodar o projeto
 baixar as dependencias: yarn<br/>
