@@ -11,6 +11,7 @@ Banco de dados Postgres<br/>
 Bcryptjs<br/>
 JsonWebToken<br/>
 Yup para validações<br/>
+Multer para trabalhar com Multform data<br/>
 
 # Rodar o projeto
 baixar as dependencias: yarn<br/>
