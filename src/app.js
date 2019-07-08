@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import routes from './routes';
 
 // Importando e fazendo nossa conexao  DB
@@ -15,6 +16,10 @@ class App {
   middlewares() {
     // Agora podemos fazer requisições em JSON
     this.server.use(express.json());
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+    );
   }
 
   routes() {

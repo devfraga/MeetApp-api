@@ -12,6 +12,7 @@ Bcryptjs<br/>
 JsonWebToken<br/>
 Yup para validações<br/>
 Multer para trabalhar com Multform data<br/>
+Date-fns para trabalhar com datas <br/>
 
 # Rodar o projeto
 baixar as dependencias: yarn<br/>
