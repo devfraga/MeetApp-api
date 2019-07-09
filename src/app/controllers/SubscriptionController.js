@@ -1,6 +1,8 @@
 import { Op } from 'sequelize';
+import Queue from '../../lib/Queue';
 import User from '../models/User';
 import Meetup from '../models/Meetup';
+import SubscriptionMail from '../jobs/SubscriptionMail';
 import Subscription from '../models/Subscription';
 
 class SubscriptionController {
@@ -31,8 +33,6 @@ class SubscriptionController {
   }
 
   async store(req, res) {
-    // rota: http://localhost:3333/meetups/7/subscriptions
-
     // Pegando dados do usuario logado
     const user = await User.findByPk(req.userId);
 
@@ -77,6 +77,11 @@ class SubscriptionController {
     const subscription = await Subscription.create({
       user_id: user.id,
       meetup_id: meetup.id,
+    });
+
+    await Queue.add(SubscriptionMail.key, {
+      meetup,
+      user,
     });
 
     return res.json(subscription);
