@@ -1,5 +1,6 @@
 import Bee from 'bee-queue';
 import SubscriptionMail from '../app/jobs/SubscriptionMail';
+import redisConfig from '../config/redis';
 
 const jobs = [SubscriptionMail];
 
@@ -14,10 +15,7 @@ class Queue {
     jobs.forEach(({ key, handle }) => {
       this.queues[key] = {
         bee: new Bee(key, {
-          redis: {
-            host: '192.168.99.100',
-            port: 6379,
-          },
+          redis: redisConfig,
         }),
         handle,
       };
@@ -37,9 +35,9 @@ class Queue {
   }
 
   handleFailure(job, err) {
-    // if (process.env.NODE_ENV === 'development') {
-    console.log(`Queue ${job.queue.name}: FAILED`, err);
-    // }
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`Queue ${job.queue.name}: FAILED`, err);
+    }
   }
 }
 
