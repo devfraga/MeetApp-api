@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 import { Op } from 'sequelize';
 import { isBefore, parseISO, startOfDay, endOfDay } from 'date-fns';
 import Meetup from '../models/Meetup';
+import File from '../models/File';
 import User from '../models/User';
 
 class MeetupController {
@@ -23,6 +24,10 @@ class MeetupController {
         {
           model: User,
           attributes: ['id', 'name', 'email', 'provider'],
+        },
+        {
+          model: File,
+          attributes: ['id', 'path', 'url'],
         },
       ],
       limit: 10,

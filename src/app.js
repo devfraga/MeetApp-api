@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import Youch from 'youch';
+import cors from 'cors';
 import * as Sentry from '@sentry/node';
 import express from 'express';
 import path from 'path';
@@ -23,6 +24,7 @@ class App {
 
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
+    this.server.use(cors());
 
     // Agora podemos fazer requisições em JSON
     this.server.use(express.json());
