@@ -37,6 +37,26 @@ class MeetupController {
     return res.json(meetups);
   }
 
+  // Retorna os detalhes de um unico meetup
+  async datails(req, res) {
+    const { id } = req.params;
+
+    const meetup = await Meetup.findOne({
+      where: {
+        user_id: req.userId,
+        id,
+      },
+      include: [
+        {
+          model: File,
+          attributes: ['id', 'path', 'url'],
+        },
+      ],
+    });
+
+    return res.json(meetup);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string().required(),
